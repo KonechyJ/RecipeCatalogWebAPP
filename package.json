@@ -1,19 +1,36 @@
 {
-  "dependencies": {
-    "react": "^16.4.0",
-    "react-bootstrap": "^0.32.4",
-    "react-dom": "^16.4.0",
-    "react-scripts": "1.1.4"
-  },
+  "name": "recipecatalogwebapp",
+  "version": "1.0.0",
+  "description": "A web app using Java script, MongoDB, HTML, and CSS to be able to host, create, and view your own Recipes",
+  "main": "index.js",
   "scripts": {
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KonechyJ/RecipeCatalogWebAPP.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KonechyJ/RecipeCatalogWebAPP/issues"
+  },
+  "homepage": "https://github.com/KonechyJ/RecipeCatalogWebAPP#readme",
+  "dependencies": {
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.0.0",
+    "ejs": "^3.1.7",
+    "express": "^4.17.3",
+    "express-ejs-layouts": "^2.5.1",
+    "express-fileupload": "^1.3.1",
+    "express-session": "^1.17.2",
+    "mongodb": "^4.5.0",
+    "mongoose": "^6.3.1"
   },
   "devDependencies": {
-    "gh-pages": "^1.2.0"
+    "nodemon": "^2.0.15"
   }
 }

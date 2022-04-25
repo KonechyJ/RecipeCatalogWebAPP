@@ -7,6 +7,7 @@
 
 exports.homepage = async(req, res) => {
 
-res.render('index');
+// Below, you can pass objects to the HTML scripts, here we are passing a new title
+res.render('index', { title: 'Recipe App Homepage'});
 
 }

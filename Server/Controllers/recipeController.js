@@ -50,6 +50,33 @@ exports.homepage = async(req, res) => {
     }
 }
 
+
+/**
+ * GET Categories/id
+ * CATEGORIES by id
+ * 
+ * 
+ * 
+ */
+
+exports.exploreCategoriesById = async(req, res) => {
+    try{
+        // getting category id
+         let categoryId = req.params.id;
+
+        //Database query to grab the category
+        const limit = 20;
+        const categoriesById= await Recipe.find({ "category": categoryId}).limit(limit);
+
+        // Below, you can pass objects to the HTML scripts, here we are passing a new title
+        res.render('categories', { title: 'Recipe App Categories', categoriesById});
+    }
+    catch(e){
+        res.status(500).send({message: e.message || "ERROR"});
+    }
+}
+
+
 /**
  * GET /recpie/:id
  * RECPIE Page
@@ -70,6 +97,34 @@ exports.homepage = async(req, res) => {
         res.status(500).send({message: e.message || "ERROR"});
     }
 }
+
+
+/**
+ * POST /search
+ * Search
+ * 
+ * 
+ */
+
+ exports.searchRecipe = async(req, res) => {
+
+    //searchTerm
+    try{
+      
+    }
+    catch(e){
+        res.status(500).send({message: e.message || "ERROR"});
+    }
+
+    res.render('search', { title: 'Recipe App Recipeb - Search'});
+}
+
+
+
+
+
+
+
 
 
 

@@ -28,4 +28,10 @@ const recSchema = new mongoose.Schema({
     },
 })
 
+recSchema.index({name: "text", description: "text" });
+
+//wildcard indexing
+//recSchema.index({"$**": "text"});
+
+
 module.exports = mongoose.model('recipe', recSchema);

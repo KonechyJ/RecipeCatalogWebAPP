@@ -243,6 +243,8 @@ exports.exploreCategoriesById = async(req, res) => {
 
         const recipe = await Recipe.findById(recipeID);
 
+        // console.log(recipe);
+
         // Below is when we would delete the recipe
         // await recipe.deleteOne({ name: 'New Recipe From Form' });
 

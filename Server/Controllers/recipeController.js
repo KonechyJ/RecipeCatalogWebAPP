@@ -187,10 +187,7 @@ exports.exploreCategoriesById = async(req, res) => {
  * 
  */
   exports.submitRecipeOnPost = async(req, res) => {
-
-
     try{
-
         let imageUploadFile;
         let uploadPath;
         let newImageName;
@@ -230,9 +227,6 @@ exports.exploreCategoriesById = async(req, res) => {
     }
  }
 
-
-
-
  // Delete Recipe
 // async function deleteRecipe(){
 //   try {
@@ -248,6 +242,9 @@ exports.exploreCategoriesById = async(req, res) => {
         let recipeID = req.params.id;
 
         const recipe = await Recipe.findById(recipeID);
+
+        // Below is when we would delete the recipe
+        // await recipe.deleteOne({ name: 'New Recipe From Form' });
 
         // Below, you can pass objects to the HTML scripts, here we are passing a new title
         res.render('delete-recipe', { title: 'Recipe App Recipe - Delete', recipe});

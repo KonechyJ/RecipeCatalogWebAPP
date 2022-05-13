@@ -114,7 +114,7 @@ exports.exploreCategoriesById = async(req, res) => {
 
       let recipe = await Recipe.find( { $text: { $search: searchTerm, $diacriticSensitive: true } });
       
-      res.render('search', { title: 'Recipe App Recipeb - Search', recipe});
+      res.render('search', { title: 'Recipe App Recipe - Search', recipe});
     }
     catch(e){
         res.status(500).send({message: e.message || "ERROR"});
@@ -227,36 +227,25 @@ exports.exploreCategoriesById = async(req, res) => {
     }
  }
 
- // Delete Recipe
-// async function deleteRecipe(){
-//   try {
-//     await Recipe.deleteOne({ name: 'New Recipe From Form' });
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-// deleteRecipe();
  exports.deleteRecipe = async(req, res) => {
     try{
         //Database query to grab the recipe
-        let recipeID = req.params.id;
+        let searchTerm = req.body.searchTerm;
 
-        const recipe = await Recipe.findById(recipeID);
-
-        // console.log(recipe);
-
-        // Below is when we would delete the recipe
-        // await recipe.deleteOne({ name: 'New Recipe From Form' });
+        let recipe = await Recipe.findOne( { $text: { $search: searchTerm, $diacriticSensitive: true } });
 
         // Below, you can pass objects to the HTML scripts, here we are passing a new title
         res.render('delete-recipe', { title: 'Recipe App Recipe - Delete', recipe});
+
+        // Below is when we would delete the recipe
+        if(recipe != null){
+            await recipe.deleteOne({ name: recipe.name });
+        }
     }
     catch(e){
         res.status(500).send({message: e.message || "ERROR"});
     }
 }
-
-
 
 // Update Recipe
 // async function updateRecipe(){

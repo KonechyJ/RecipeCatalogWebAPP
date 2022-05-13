@@ -13,7 +13,6 @@ router.get('/see-newest', recipeController.seeNewest);
 router.get('/see-random', recipeController.seeRandom);
 router.get('/submit-recipe', recipeController.submitRecipe);
 router.get('/update-recipe', recipeController.updateRecipe);
-// router.get('/delete-recipe', recipeController.deleteRecipe);
 
 router.post('/search', recipeController.searchRecipe);
 router.post('/submit-recipe', recipeController.submitRecipeOnPost);
